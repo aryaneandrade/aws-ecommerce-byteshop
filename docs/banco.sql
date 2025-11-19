@@ -22,16 +22,25 @@ CREATE TABLE produtos (
     categoria VARCHAR(100)      -- Monitores, Celulares, Video Games
 );
 
--- 4. TABELA DE PEDIDOS (Cabeçalho da compra)
+-- 4. TABELA DE PEDIDOS (Atualizada com Endereço)
 CREATE TABLE pedidos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL,
     data_pedido DATETIME DEFAULT CURRENT_TIMESTAMP,
     valor_total DECIMAL(10,2),
+    
+    -- Campos de Endereço (Snapshot da entrega)
+    cep VARCHAR(10),
+    rua VARCHAR(150),
+    numero VARCHAR(20),
+    bairro VARCHAR(100),
+    cidade VARCHAR(100),
+    estado VARCHAR(2),
+    
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 
--- 5. TABELA DE ITENS DO PEDIDO (Detalhes do que foi comprado)
+-- 5. TABELA DE ITENS DO PEDIDO
 CREATE TABLE itens_pedido (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_pedido INT NOT NULL,
