@@ -57,7 +57,7 @@ Crie um banco de dados chamado `black_friday` a partir do script localizado em d
 
 
 ## Estrutura de Pastas 
-``
+
 /projeto-web-uniruy-atualizado
 │
 ├── assets/                   # Arquivos estáticos (Front-end)
