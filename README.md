@@ -35,6 +35,13 @@ O sistema conta com fluxo completo de vendas: Autenticação, Catálogo, Carrinh
     *   [ViaCEP](https://viacep.com.br/) (Consulta de endereço).
     *   [QuickChart](https://quickchart.io/) (Geração de QR Code).
 
+## Diagramas do Projeto 
+
+### Diagrama ER 
+
+### Diagrama de Classes
+
+
 ## ⚙️ Instalação e Configuração
 
 ### 1. Requisitos
