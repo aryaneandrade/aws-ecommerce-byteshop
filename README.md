@@ -42,6 +42,7 @@ O sistema conta com fluxo completo de vendas: Autenticação, Catálogo, Carrinh
 
 ### Diagrama de Classes
 
+![Diagrama de Classes](docs/diagrama-de-classes.png)
 
 ## ⚙️ Instalação e Configuração
 
