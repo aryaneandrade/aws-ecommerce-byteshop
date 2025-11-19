@@ -40,9 +40,11 @@ O sistema conta com fluxo completo de vendas: Autenticação, Catálogo, Carrinh
 ### Diagrama ER 
 ![Diagrama ER](docs/diagrama-ER.png)
 
+
 ### Diagrama de Classes
 
 ![Diagrama de Classes](docs/diagrama-de-classes.png)
+
 
 ## ⚙️ Instalação e Configuração
 
@@ -52,3 +54,43 @@ O sistema conta com fluxo completo de vendas: Autenticação, Catálogo, Carrinh
 
 ### 2. Banco de Dados
 Crie um banco de dados chamado `black_friday` a partir do script localizado em database/banco.sql 
+
+
+## Estrutura de Pastas 
+``
+/projeto-web-uniruy-atualizado
+│
+├── assets/                   # Arquivos estáticos (Front-end)
+│   ├── css/
+│   │   └── styles.css        # Seu CSS personalizado (Design Original + Fixes)
+│   ├── img/
+│   │   └── ... (todas as imagens dos produtos)
+│   └── js/
+│       └── api_services.js   # Lógica das APIs (ViaCEP e QuickChart/Pix)
+│
+├── config/                   # Configurações do Sistema
+│   ├── database.php          # Conexão com o Banco de Dados (PDO)
+│   └── url.php               # Definição da $BASE_URL
+│
+├── models/                   # Lógica de Negócios e Banco (Classes)
+│   ├── Mensagem.php          # Gerencia as mensagens de alerta (Flash Messages)
+│   ├── Pedido.php            # Salva pedidos e busca histórico
+│   ├── Produto.php           # Busca produtos e categorias
+│   └── Usuario.php           # Faz Login e Cadastro
+│
+├── process/                  # Processamento "Invisível" (Back-end puro)
+│   └── cart_process.php      # Adiciona/Remove itens e Finaliza compra
+│
+├── templates/                # Blocos de HTML reutilizáveis
+│   ├── header.php            # Cabeçalho, Navbar, Sessão e Lógica de Carrinho
+│   └── footer.php            # Rodapé e inclusão de Scripts JS
+│
+├── auth_process.php          # Processa os formulários de Login e Cadastro
+├── cadastro.php              # Tela de Cadastro
+├── carrinho.php              # Tela do Carrinho + Simulador de Frete
+├── index.php                 # Página Inicial (Home, Banners, Categorias)
+├── login.php                 # Tela de Login
+├── logout.php                # Script para deslogar
+├── meus_pedidos.php          # Tela de Histórico de Compras
+├── produtos.php              # Tela de Listagem de Produtos (Catálogo)
+└── sucesso.php               # Tela de Pagamento com QR Code (API)
