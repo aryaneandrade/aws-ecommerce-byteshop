@@ -119,7 +119,7 @@ if ($termoPesquisa) {
                             </div>
 
                             <!-- Botão Comprar -->
-                            <form action="<?= $BASE_URL ?>process/cart_process.php" method="POST" class="mt-auto">
+                            <form action="<?= $BASE_URL ?>controllers/CarrinhoController.php" method="POST" class="mt-auto">
                                 <input type="hidden" name="acao" value="adicionar_carrinho">
                                 <input type="hidden" name="product_id" value="<?= $produto['id']; ?>">
 

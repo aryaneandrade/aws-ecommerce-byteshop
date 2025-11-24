@@ -34,7 +34,7 @@ if(isset($_SESSION['carrinho']) && count($_SESSION['carrinho']) > 0) {
         <div class="row">
             <!-- ESQUERDA: PRODUTOS -->
             <div class="col-lg-7 mb-4">
-                <div class="table-responsive shadow-sm rounded-4">
+                <div class="table-responsive shadow-sm">
                     <table class="table table-hover align-middle mb-0 bg-white">
                         <thead class="table-dark text-center">
                             <tr>
@@ -56,7 +56,7 @@ if(isset($_SESSION['carrinho']) && count($_SESSION['carrinho']) > 0) {
                                     <td class="text-center fw-bold"><?= $item['qtd_comprada'] ?></td>
                                     <td class="text-center text-success fw-bold">R$ <?= number_format($item['subtotal'], 2, ',', '.') ?></td>
                                     <td class="text-center">
-                                        <a href="process/cart_process.php?acao=remover_carrinho&id=<?= $item['id'] ?>" class="text-danger"><i class="bi bi-trash-fill"></i></a>
+                                        <a href="controllers/CarrinhoController.php?acao=remover_carrinho&id=<?= $item['id'] ?>" class="text-danger"><i class="bi bi-trash-fill"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -69,7 +69,7 @@ if(isset($_SESSION['carrinho']) && count($_SESSION['carrinho']) > 0) {
             <div class="col-lg-5">
                 
                 <!-- FORMULÁRIO QUE ENVIA TUDO PARA O PROCESSAMENTO -->
-                <form action="process/cart_process.php" method="POST">
+                <form action="controllers/CarrinhoController.php" method="POST">
                     <input type="hidden" name="acao" value="finalizar_pedido">
 
                     <div class="card border-0 shadow-sm rounded-4 bg-white text-dark">

@@ -5,7 +5,7 @@
 
         <h2 class="text-center fw-bold mb-4">CRIAR CONTA</h2>
 
-        <form action="auth_process.php" method="POST">
+        <form action="controllers/AuthController.php" method="POST">
             <input type="hidden" name="type" value="register">
 
             <div class="row g-3">

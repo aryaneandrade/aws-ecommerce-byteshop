@@ -1,8 +1,9 @@
 <?php
-require_once("config/database.php");
-require_once("config/url.php");
-require_once("models/Mensagem.php");
-require_once("models/Usuario.php");
+
+require_once("../config/database.php");
+require_once("../config/url.php");
+require_once("../models/Mensagem.php");
+require_once("../models/Usuario.php");
 
 session_start();
 
@@ -23,6 +24,7 @@ if($type === "register") {
     if($name && $email && $password) {
         if($password === $confirm) {
             if($usuarioModel->cadastrar($name, $lastname, $email, $password)) {
+                // Redireciona para login.php (que está na raiz)
                 $message->setMessage("Cadastro realizado! Faça login.", "success", "login.php");
             } else {
                 $message->setMessage("E-mail já cadastrado.", "error", "back");
@@ -40,6 +42,7 @@ if($type === "register") {
     $password = filter_input(INPUT_POST, "password");
 
     if($usuarioModel->logar($email, $password)) {
+        // Redireciona para index.php (que está na raiz)
         $message->setMessage("Bem-vindo!", "success", "index.php");
     } else {
         $message->setMessage("Usuário ou senha incorretos.", "error", "back");

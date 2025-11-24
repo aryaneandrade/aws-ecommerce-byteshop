@@ -7,7 +7,6 @@ class Pedido {
         $this->conn = $conn;
     }
 
-   // Adicionei o argumento $endereco no final
     public function registrarPedido($idUsuario, $itensCarrinho, $endereco) {
         try {
             $this->conn->beginTransaction();
@@ -29,7 +28,7 @@ class Pedido {
                 }
             }
 
-            // 2. Cria o Pedido COM ENDEREÇO
+            // 2. Cria o Pedido com Endereço
             $sql = "INSERT INTO pedidos (id_usuario, valor_total, cep, rua, numero, bairro, cidade, estado) 
                     VALUES (:id_usuario, :valor_total, :cep, :rua, :numero, :bairro, :cidade, :estado)";
             

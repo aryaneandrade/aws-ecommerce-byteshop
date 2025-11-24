@@ -7,7 +7,7 @@
     <div class="col-md-6 mx-auto" id="form-container">
         <h2 class="text-center mb-4">LOGIN</h2>
 
-        <form action="<?= $BASE_URL ?>auth_process.php" method="POST">
+        <form action="controllers/AuthController.php" method="POST">
             <input type="hidden" name="type" value="login">
 
             <div class="form-floating mb-3">

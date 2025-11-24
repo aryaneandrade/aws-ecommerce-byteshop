@@ -66,7 +66,7 @@ footer {
     margin: 1em 0;
 }
 
-/* Estilo do input de busca para não parecer desabilitado */
+
 #navbar input[type="search"] {
     border: none;
     padding: 10px 15px;
@@ -134,7 +134,7 @@ footer {
     white-space: nowrap;
     position: absolute;
     left: 100%; /* Começa fora da tela */
-    animation: animacao 15s linear infinite; /* Aumentei o tempo para ler melhor */
+    animation: animacao 15s linear infinite;
     color: #101010;
     line-height: 40px; /* Centraliza verticalmente */
 }
@@ -290,17 +290,17 @@ footer {
    ========================================= */
 
 .card-pix-container {
-    background-color: #ffffff !important; /* Garante fundo branco */
-    color: #000000 !important;            /* Garante texto preto */
+    background-color: #ffffff !important; 
+    color: #000000 !important;            
     border-radius: 15px;
     overflow: hidden;
     max-width: 500px;
     margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra mais elegante */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .card-pix-header {
-    background-color: #198754 !important; /* Verde Sucesso */
+    background-color: #198754 !important; 
     color: white !important;
     padding: 20px;
     font-weight: 800;

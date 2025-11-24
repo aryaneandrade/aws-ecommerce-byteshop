@@ -5,5 +5,6 @@
 
 // Essa variável é utilizada para construir links consistentes em toda a aplicação.
 
-$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI'] . '?') . '/';
+$pasta_do_projeto = "projeto-web-uniruy-atualizado"; 
 
+$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/" . $pasta_do_projeto . "/";
