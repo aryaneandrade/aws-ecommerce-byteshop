@@ -1,12 +1,17 @@
 <?php 
 // config/url.php
 
-// No Docker, a aplicação roda na raiz, então deixamos vazio ou "/"
 $nome_da_pasta = ""; 
 
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
-$BASE_URL = $protocol . $_SERVER['SERVER_NAME'] . "/";
+// Verifica se é HTTPS real OU se é HTTPS vindo do Load Balancer da AWS
+if (
+    (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ||
+    (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+) {
+    $protocol = "https://";
+} else {
+    $protocol = "http://";
+}
 
-// Se rodar em porta diferente de 80 (ex: localhost:8080), precisa ajustar, 
-// mas na produção AWS será porta 80 padrão.
+$BASE_URL = $protocol . $_SERVER['SERVER_NAME'] . "/";
 ?>
