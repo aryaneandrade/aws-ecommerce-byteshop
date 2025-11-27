@@ -60,7 +60,7 @@ INSERT INTO produtos (nome, descricao, preco_normal, preco_promo, imagem, catego
 -- 1. CELULARES
 ('iPhone 17 Pro Max', 'Titanium, Chip A19 Pro, 512GB, Tela 6.9", Câmera 48MP Tetraprisma.', 11500.00, 9899.00, 'assets/img/iphone-17-pro.png', 'Celulares'),
 ('iPhone 17', 'Chip A18, 256GB, Tela OLED 120Hz ProMotion, Ilha Dinâmica Reduzida.', 7900.00, 6499.00, 'assets/img/iphone-17.png', 'Celulares'),
-('Xiaomi 15 Pro 5G', 'Lentes Leica Summilux, Snapdragon 8 Gen 4, 16GB RAM, Carregamento 120W.', 5200.00, 3899.90, 'assets/img/xiaomi-15.png', 'Celulares'),
+('Xiaomi 15 Pro 5G', 'Lentes Leica Summilux, Snapdragon 8 Gen 4, 16GB RAM, Carregamento 120W.', 5200.00, 3899.90, 'assets/img/xiaomi-15.jpeg', 'Celulares'),
 
 -- 2. VIDEO GAMES
 ('PlayStation 5 Pro', 'GPU com Ray Tracing Avançado, 2TB SSD, PSSR Upscaling, 4K 60FPS Estável.', 6900.00, 5499.00, 'assets/img/ps5-pro.png', 'Video Games'),

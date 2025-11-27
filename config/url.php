@@ -1,10 +1,12 @@
 <?php 
+// config/url.php
 
-// Define a URL base do sistema de forma dinâmica, combinando protocolo, servidor e diretório atual.
+// No Docker, a aplicação roda na raiz, então deixamos vazio ou "/"
+$nome_da_pasta = ""; 
 
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
+$BASE_URL = $protocol . $_SERVER['SERVER_NAME'] . "/";
 
-// Essa variável é utilizada para construir links consistentes em toda a aplicação.
-
-$pasta_do_projeto = "projeto-web-uniruy-atualizado"; 
-
-$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/" . $pasta_do_projeto . "/";
+// Se rodar em porta diferente de 80 (ex: localhost:8080), precisa ajustar, 
+// mas na produção AWS será porta 80 padrão.
+?>

@@ -1,25 +1,17 @@
 <?php 
+// config/database.php
 
-// Credenciais de acesso ao Banco de Dados
-$db_host= "localhost";
-$db_name= "black_friday";
-$db_user= "root";
-$db_pass= "Admin@123";
+$db_host = getenv('DB_HOST') ?: "localhost";
+$db_name = getenv('DB_NAME') ?: "black_friday";
+$db_user = getenv('DB_USER') ?: "root";
+$db_pass = getenv('DB_PASS') ?: "";
 
-
-try{
-    // Conexão via PDO (PHP Data Objects)
-    // O PDO é essencial pois previne nativamente ataques de SQL Injection
+try {
     $conn = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
-
-    // Ativa o modo de erros para Exceptions
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-}catch(PDOException $e){   
-
-    // Tratamento de erro: Se o banco cair, o usuário recebe uma mensagem
-    $error = $e->getMessage();
-    echo "Erro: ". $error;
+} catch(PDOException $e) {   
+    // Em produção, evite exibir o erro detalhado do banco para o usuário
+    echo "Erro de conexão com o banco de dados.";
+    // error_log($e->getMessage()); // Logar o erro internamente
 }
-
 ?>

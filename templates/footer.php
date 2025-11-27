@@ -7,7 +7,7 @@
             <a href="index.php" class="text-white text-decoration-none me-3">Home</a>
             <a href="produtos.php" class="text-white text-decoration-none me-3">Produtos</a>
             
-            <!-- LINK PARA O DASHBOARD (Visível para todos agora) -->
+            <!-- LINK PARA O DASHBOARD -->
             <a href="dashboard.php" class="text-warning text-decoration-none fw-bold">
                 <i class="bi bi-bar-chart-fill"></i> Dashboard BI
             </a>
