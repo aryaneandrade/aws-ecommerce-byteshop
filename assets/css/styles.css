@@ -1,5 +1,5 @@
 /* =========================================
-   ESTILOS GERAIS
+   1. ESTILOS GERAIS E RESET
    ========================================= */
 
 * {
@@ -21,7 +21,7 @@ footer {
 }
 
 /* =========================================
-   CORES E BACKGROUNDS
+   2. CORES E BACKGROUNDS (PALETA)
    ========================================= */
 
 .primary-bg-color { background-color: #252525; }
@@ -34,19 +34,14 @@ footer {
 .light-color { color: #FCF5EB; }
 
 /* =========================================
-   NAVBAR (CABEÇALHO) 
+   3. NAVBAR PRINCIPAL (TOPO)
    ========================================= */
 
 #navbar {
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* Alinhamento horizontal e vertical dos ícones */
-#navbar .navbar-nav {
-    flex-direction: row;
-    align-items: center;
-}
-
+/* Links e Botões */
 #navbar a,
 #navbar button {
     color: #fff !important;
@@ -61,7 +56,7 @@ footer {
     font-size: 20px;
 }
 
-/* Ajuste da Barra de Pesquisa */
+/* Barra de Pesquisa */
 #search-form {
     width: 100%;
     margin: 10px 0;
@@ -70,38 +65,41 @@ footer {
 #navbar input[type="search"] {
     border: none;
     padding: 10px 15px;
-    border-radius: 5px; /* Arredondar um pouco */
+    border-radius: 5px;
 }
 
-/* Utilitário para impedir quebra de linha no nome do usuário */
+/* Utilitário para nome do usuário não quebrar */
 .text-nowrap {
     white-space: nowrap !important;
 }
 
-/* RESPONSIVIDADE DO NAVBAR */
+/* --- Responsividade Navbar Principal --- */
+
+/* Desktop (Telas Grandes) */
 @media(min-width: 992px) {
     #search-form {
         margin: 0;
         width: auto;
     }
     
-    .navbar-items {
-        display: flex;
+    #navbar .navbar-nav {
+        flex-direction: row;
         align-items: center;
-        width: 100%;
     }
 }
 
+/* Mobile (Tablets e Celulares) */
 @media(max-width: 991px) {
-    /* No mobile, joga os ícones para a direita */
     #navbar .navbar-nav {
-        justify-content: flex-end; /* Ícones alinhados à direita */
+        flex-direction: row; /* Mantém ícones lado a lado */
+        justify-content: flex-end;
+        align-items: center;
         margin-top: 10px;
         width: 100%;
         gap: 15px; 
     }
     
-    /* Ajuste para o usuário logado no mobile */
+    /* Ajuste para o box do usuário logado */
     .nav-item .bg-dark {
         padding: 5px 10px !important;
         font-size: 0.8rem;
@@ -109,11 +107,12 @@ footer {
 }
 
 /* =========================================
-   BOTTOM NAVBAR (SUBMENU)
+   4. BOTTOM NAVBAR (SUBMENU CATEGORIAS)
    ========================================= */
 
-#bottom-navbar-container .container {
-    justify-content: flex-end;
+#bottom-navbar-container {
+    padding: 0;
+    border-bottom: 1px solid #444; /* Leve separação visual */
 }
 
 #bottom-navbar-container a {
@@ -125,20 +124,43 @@ footer {
     color: #c09578 !important;
 }
 
-/* Mobile: Centralizar menu inferior */
+/* --- Correção "Menu Duplo" no Mobile --- */
 @media(max-width: 991px) {
-    #bottom-navbar-container .navbar-nav {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
+    /* Esconde o botão hambúrguer do submenu */
+    #bottom-navbar-container .navbar-toggler {
+        display: none !important;
     }
-    #bottom-navbar-container .nav-item {
-        margin-bottom: 5px;
+
+    /* Força os links a aparecerem sempre */
+    #bottom-navbar-container .collapse.navbar-collapse {
+        display: block !important;
+    }
+
+    /* Transforma em uma barra de links horizontal */
+    #bottom-navbar-container .navbar-nav {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        margin: 0;
+        padding: 8px 0;
+        background-color: #d3d3d3; /* Garante fundo claro */
+    }
+
+    #bottom-navbar-container .nav-link {
+        font-size: 0.8rem;
+        padding: 5px !important;
+    }
+}
+
+/* Desktop: Alinha à direita */
+@media(min-width: 992px) {
+    #bottom-navbar-container .container {
+        justify-content: flex-end;
     }
 }
 
 /* =========================================
-   ANIMAÇÃO BLACK FRIDAY
+   5. ANIMAÇÃO BLACK FRIDAY (TICKER)
    ========================================= */
 
 .overflow-hidden {
@@ -146,6 +168,7 @@ footer {
     height: 40px;
     position: relative;
     overflow: hidden;
+    margin-top: -1px;
 }
 
 .animacao {
@@ -153,25 +176,21 @@ footer {
     white-space: nowrap;
     position: absolute;
     left: 100%; 
-    animation: animacao 20s linear infinite; /* Mais lento para ler melhor no mobile */
+    animation: animacao 20s linear infinite; /* Mais lento para leitura */
     color: #101010;
     line-height: 40px; 
 }
 
 .animacao h1 {
     font-weight: 800;
-    font-size: 16px; /* Fonte menor para mobile */
+    font-size: 16px;
     margin: 0;
     text-transform: uppercase;
 }
 
 @media(min-width: 768px) {
-    .animacao h1 {
-        font-size: 20px;
-    }
-    .animacao {
-        animation: animacao 15s linear infinite;
-    }
+    .animacao h1 { font-size: 20px; }
+    .animacao { animation: animacao 15s linear infinite; }
 }
 
 @keyframes animacao {
@@ -180,13 +199,48 @@ footer {
 }
 
 /* =========================================
-   CATEGORIAS
+   6. BANNERS / CARROSSEL (HOME)
+   ========================================= */
+
+/* Correção para Mobile: Texto legível e imagem ajustada */
+@media (max-width: 991px) {
+    #slider .carousel-item img {
+        height: 300px; 
+        object-fit: cover;
+    }
+
+    #slider .carousel-caption {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(37, 37, 37, 0.9); /* Fundo escuro semi-transparente */
+        padding: 15px;
+        position: absolute;
+        text-align: center;
+    }
+
+    #slider .carousel-caption h5 {
+        font-size: 1rem;
+        font-weight: 800;
+        margin-bottom: 5px;
+    }
+
+    #slider .carousel-caption p {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+        line-height: 1.2;
+    }
+}
+
+/* =========================================
+   7. CATEGORIAS (GRID)
    ========================================= */
 
 #categorias {
     background-color: #626262;
     text-align: center;
-    padding: 3em 0; /* Padding menor no mobile */
+    padding: 3em 0;
     color: #fff;
 }
 
@@ -200,19 +254,19 @@ footer {
 }
 
 #categorias .col-12:hover {
-    transform: scale(1.02); /* Scale mais sutil no mobile */
+    transform: scale(1.02);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 #categorias h2 {
     text-transform: uppercase;
-    font-size: 1.3em; /* Fonte menor titulos */
+    font-size: 1.3em;
     font-weight: 700;
     margin-bottom: 1em;
 }
 
 #categorias img {
-    height: 150px; /* Imagem menor mobile */
+    height: 150px;
     width: auto;
     max-width: 100%;
     display: block;
@@ -234,30 +288,24 @@ footer {
 
 @media (min-width: 768px) {
     #categorias { padding: 4em 0; }
-    
-    #categorias .col-12 {
-        max-width: 30%;
-        margin-bottom: 0;
-    }
-    
+    #categorias .col-12 { max-width: 30%; margin-bottom: 0; }
     #categorias img { height: 220px; }
     #categorias h2 { font-size: 2em; }
-    
     #categorias .col-12:hover { transform: scale(1.03); }
 }
 
 /* =========================================
-   FORM DE LOGIN E CADASTRO
+   8. FORMULÁRIOS (LOGIN/CADASTRO)
    ========================================= */
 
 #form-container {
     background-color: #FFF;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    margin: 20px auto; /* Menor margem vertical mobile */
-    padding: 20px;     /* Menor padding interno mobile */
+    margin: 20px auto;
+    padding: 20px;
     color: #333;
-    width: 95%;        /* Ocupa quase toda tela no mobile */
+    width: 95%;
     max-width: 600px;
 }
 
@@ -283,15 +331,11 @@ footer {
 }
 
 /* =========================================
-   MENSAGENS (ALERTS)
+   9. MENSAGENS E ALERTAS
    ========================================= */
 
-.msg-container {
-    padding: 10px;
-}
-
 .msg {
-    width: 95%; /* Mobile */
+    width: 95%;
     margin: 0 auto;
     padding: 10px;
     border: 1px solid transparent;
@@ -318,7 +362,7 @@ footer {
 }
 
 /* =========================================
-   PÁGINA DE SUCESSO / PAGAMENTO PIX
+   10. SUCESSO / PAGAMENTO PIX
    ========================================= */
 
 .card-pix-container {
@@ -326,7 +370,7 @@ footer {
     color: #000000 !important;            
     border-radius: 15px;
     overflow: hidden;
-    width: 95%; /* Responsivo no mobile */
+    width: 95%;
     max-width: 500px;
     margin: 0 auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -339,7 +383,6 @@ footer {
     font-weight: 800;
     font-size: 1.1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .card-pix-body {
@@ -348,14 +391,13 @@ footer {
 }
 
 .pix-valor {
-    font-size: 2rem; /* Menor no mobile */
+    font-size: 2rem;
     font-weight: 800;
     color: #198754 !important;
     margin: 10px 0 20px 0;
-    word-break: break-word; /* Evita quebra de layout se valor for gigante */
+    word-break: break-word;
 }
 
-/* Container da imagem do QR Code */
 .qr-code-wrapper {
     border: 1px solid #ddd;
     padding: 5px;
@@ -363,7 +405,7 @@ footer {
     display: inline-block;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    max-width: 100%; /* Garante que não estoure a tela */
+    max-width: 100%;
 }
 
 .qr-code-wrapper img {
@@ -393,6 +435,20 @@ footer {
     color: #fff !important;
 }
 
+.link-voltar {
+    color: #6c757d !important;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.link-voltar:hover {
+    color: #000 !important;
+    text-decoration: underline;
+}
+
 @media(min-width: 768px) {
     .card-pix-header { padding: 20px; font-size: 1.3rem; }
     .card-pix-body { padding: 40px 30px; }
@@ -401,10 +457,9 @@ footer {
 }
 
 /* =========================================
-   AJUSTES FINAIS PARA CELULARES PEQUENOS
+   11. AJUSTES PARA TELAS MUITO PEQUENAS
    ========================================= */
 @media(max-width: 380px) {
-    /* Ajustes para telas muito pequenas (iPhone SE, etc) */
     .navbar-brand { font-size: 1.2rem; }
     #navbar i { font-size: 18px; }
     .animacao h1 { font-size: 14px; }
