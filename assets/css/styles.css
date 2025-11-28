@@ -234,23 +234,30 @@ footer {
 }
 
 /* =========================================
-   7. CATEGORIAS (GRID)
+   7. CATEGORIAS (GRID) - CORRIGIDO
    ========================================= */
 
 #categorias {
     background-color: #626262;
     text-align: center;
-    padding: 3em 0;
+    /* ESPAÇAMENTO LATERAL ADICIONADO (20px) */
+    padding: 3em 20px;
     color: #fff;
 }
 
 #categorias .col-12 {
     height: auto; 
     padding: 2em 1em;
-    border-radius: 8px;
+    border-radius: 15px;
     transition: transform 0.3s ease;
     margin-bottom: 20px;
     cursor: pointer;
+
+    /* Centralizar e limitar largura no mobile/tablet */
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #categorias .col-12:hover {
@@ -288,7 +295,14 @@ footer {
 
 @media (min-width: 768px) {
     #categorias { padding: 4em 0; }
-    #categorias .col-12 { max-width: 30%; margin-bottom: 0; }
+    
+    #categorias .col-12 { 
+        max-width: 30%; 
+        margin-bottom: 0;
+        margin-left: 0; /* Reseta margem automática no desktop */
+        margin-right: 0;
+    }
+    
     #categorias img { height: 220px; }
     #categorias h2 { font-size: 2em; }
     #categorias .col-12:hover { transform: scale(1.03); }
